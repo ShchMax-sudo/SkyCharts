@@ -1,3 +1,3 @@
 # SkyCharts
 
-SkyCharts
+Free public SkyCharts
