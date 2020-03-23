@@ -2,7 +2,8 @@ from PIL import Image
 import tkinter as tk
 from tkinter import filedialog as fd
 
-typ = "png"
+typin = "png"
+typout = "jpg"
 w = 800
 h = 600
 ew = 25
@@ -22,7 +23,7 @@ def invert(im):
 def save(im, indeks):
 	global typ, DirError
 	try:
-		im.save('./SkyCharts/skychart-{}'.format(str(indeks)) + '.' + typ)
+		im.save('./SkyCharts/skychart-{}'.format(str(indeks)) + '.' + typout)
 	except:
 		DirError = True
 		raise IndexError()
@@ -36,12 +37,12 @@ def exir(e):
 	raise SystemExit()
 
 def obr():
-	global begin, end, files, typ, pref, DirError
+	global begin, end, files, typout, pref, DirError
 	b = int(begin.get())
 	e = int(end.get())
 	for i in range(b, e + 1):
 		try:
-			save(invert(Image.open(files + pref + ("000" + str(i))[-3:] + '.' + typ)), i)
+			save(invert(Image.open(files + pref + ("000" + str(i))[-3:] + '.' + typin)), i)
 			print("Обработана {} картинка.".format(i))
 		except:
 			print("Ошибка обработки {} картинки.".format(i))
